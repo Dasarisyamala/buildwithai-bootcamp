@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Study Buddy – Smart Learning Assistant</title>
+  <meta name="description" content="AI Study Buddy is an intelligent learning assistant that generates explanations, key points, quizzes, summaries, and study plans instantly from any topic." />
+  <meta name="keywords" content="AI, Study, Learning, Quiz, Education, Smart Assistant" />
+  <meta name="author" content="AI Study Buddy" />
+  <meta property="og:title" content="AI Study Buddy – Smart Learning Assistant" />
+  <meta property="og:description" content="Generate study material instantly from any topic using AI." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <div class="nav-brand">
+        <div class="nav-logo">
+          <span class="logo-icon">🧠</span>
+          <div class="logo-pulse"></div>
+        </div>
+        <div class="nav-title-group">
+          <span class="nav-title">AI Study Buddy</span>
+          <span class="nav-version">v2.0</span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="nav-badge">
+        <span class="badge-dot"></span>
+        Smart Learning
+      </div>
+      <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle theme">
+        <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge-row">
+        <div class="hero-badge">
+          <span class="hero-badge-icon">⚡</span>
+          Powered by AI
+        </div>
+        <div class="hero-badge secondary">
+          <span class="hero-badge-icon">🎓</span>
+          For Students
+        </div>
+      </div>
+      <h1 class="hero-title">
+        AI Study <span class="gradient-text">Buddy</span>
+      </h1>
+      <p class="hero-subtitle">
+        Generate explanations, key points, quizzes, and study plans instantly.
+      </p>
+
+      <!-- Feature Pills -->
+      <div class="feature-pills">
+        <div class="pill"><span class="pill-icon">💡</span> Explanations</div>
+        <div class="pill"><span class="pill-icon">🔑</span> Key Points</div>
+        <div class="pill"><span class="pill-icon">❓</span> Quizzes</div>
+        <div class="pill"><span class="pill-icon">📝</span> Summaries</div>
+        <div class="pill"><span class="pill-icon">📅</span> Study Plans</div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" id="stat-topics">0</span>
+          <span class="stat-label">Topics Generated</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Key Points</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Quiz Questions</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Step Plan</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-dot"></div>
+    </div>
+  </header>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">How It Works</span>
+        <h2 class="section-title">Three simple steps to <span class="gradient-text">mastery</span></h2>
+      </div>
+      <div class="steps-grid">
+        <div class="how-step">
+          <div class="how-step-number">1</div>
+          <div class="how-step-icon">🔍</div>
+          <h3>Enter a Topic</h3>
+          <p>Type any subject, concept, or chapter you want to study.</p>
+        </div>
+        <div class="how-step-connector" aria-hidden="true">
+          <svg viewBox="0 0 40 24" width="40" height="24"><path d="M0 12h30M30 12l-8-8M30 12l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">2</div>
+          <div class="how-step-icon">⚙️</div>
+          <h3>AI Generates</h3>
+          <p>Our AI instantly creates comprehensive study material.</p>
+        </div>
+        <div class="how-step-connector" aria-hidden="true">
+          <svg viewBox="0 0 40 24" width="40" height="24"><path d="M0 12h30M30 12l-8-8M30 12l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">3</div>
+          <div class="how-step-icon">🎯</div>
+          <h3>Learn & Master</h3>
+          <p>Study with structured content, quiz yourself, and track progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Input Section -->
+    <section class="input-section" id="input-section">
+      <div class="input-card">
+        <div class="input-card-header">
+          <div class="input-header-icon">
+            <span>📚</span>
+          </div>
+          <h2>What do you want to learn today?</h2>
+          <p>Enter any topic and our AI will generate comprehensive study material tailored for you.</p>
+        </div>
+        <div class="input-group">
+          <div class="input-wrapper">
+            <svg class="input-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+            </svg>
+            <input type="text" id="topic-input" placeholder="e.g. Photosynthesis, Machine Learning, World War II..." autocomplete="off" aria-label="Enter a study topic" />
+            <button id="clear-btn" class="clear-btn" title="Clear input" aria-label="Clear input" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <button id="generate-btn" class="generate-btn" aria-label="Generate study material">
+            <span class="btn-text">Generate Study Material</span>
+            <span class="btn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </button>
+        </div>
+        <div class="quick-topics">
+          <span class="quick-label">Quick Start:</span>
+          <button class="topic-chip" data-topic="Photosynthesis">🌱 Photosynthesis</button>
+          <button class="topic-chip" data-topic="Machine Learning">🤖 Machine Learning</button>
+          <button class="topic-chip" data-topic="Solar System">🪐 Solar System</button>
+          <button class="topic-chip" data-topic="DNA Replication">🧬 DNA Replication</button>
+          <button class="topic-chip" data-topic="Newton's Laws">⚡ Newton's Laws</button>
+          <button class="topic-chip" data-topic="World War II">🌍 World War II</button>
+        </div>
+
+        <!-- Recent History -->
+        <div class="history-section" id="history-section" style="display:none;">
+          <div class="history-header">
+            <span class="history-label">📜 Recent Topics</span>
+            <button class="history-clear" id="history-clear-btn" title="Clear history">Clear All</button>
+          </div>
+          <div class="history-chips" id="history-chips"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loading Animation -->
+    <section class="loading-section" id="loading-section" style="display:none;">
+      <div class="loading-card">
+        <div class="loading-spinner">
+          <div class="spinner-orbit"><div class="spinner-dot"></div></div>
+          <div class="spinner-orbit orbit-2"><div class="spinner-dot"></div></div>
+          <div class="spinner-orbit orbit-3"><div class="spinner-dot"></div></div>
+          <span class="spinner-brain">🧠</span>
+        </div>
+        <h3 class="loading-title">Generating your study material...</h3>
+        <p class="loading-subtitle" id="loading-status">Analyzing the topic</p>
+        <div class="loading-bar">
+          <div class="loading-bar-fill" id="loading-bar-fill"></div>
+        </div>
+        <div class="loading-steps" id="loading-steps">
+          <div class="l-step" data-step="0"><span class="l-check">○</span> Analyzing topic</div>
+          <div class="l-step" data-step="1"><span class="l-check">○</span> Generating explanation</div>
+          <div class="l-step" data-step="2"><span class="l-check">○</span> Identifying key points</div>
+          <div class="l-step" data-step="3"><span class="l-check">○</span> Creating quiz</div>
+          <div class="l-step" data-step="4"><span class="l-check">○</span> Building study plan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="results-section" style="display:none;">
+      <div class="results-header">
+        <div class="results-title-group">
+          <h2 class="results-title">
+            📖 Study Material
+          </h2>
+          <div class="results-topic-badge">
+            <span id="topic-name"></span>
+          </div>
+        </div>
+        <div class="results-actions">
+          <button class="action-btn" id="download-btn" title="Download as text file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download</span>
+          </button>
+          <button class="action-btn" id="copy-all-btn" title="Copy all content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copy All</span>
+          </button>
+          <button class="action-btn primary-action" id="new-topic-btn" title="Generate new topic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 5v14M5 12h14"/></svg>
+            <span>New Topic</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="tab-nav" id="tab-nav">
+        <button class="tab-btn active" data-tab="all">📋 All</button>
+        <button class="tab-btn" data-tab="explanation">💡 Explanation</button>
+        <button class="tab-btn" data-tab="keypoints">🔑 Key Points</button>
+        <button class="tab-btn" data-tab="quiz">❓ Quiz</button>
+        <button class="tab-btn" data-tab="summary">📝 Summary</button>
+        <button class="tab-btn" data-tab="studyplan">📅 Study Plan</button>
+      </div>
+
+      <!-- Explanation Card -->
+      <div class="result-card card-explanation" id="card-explanation" data-category="explanation">
+        <div class="card-accent"></div>
+        <div class="card-header">
+          <div class="card-icon-wrapper explanation-icon">💡</div>
+          <div class="card-title-group">
+            <h3>Simple Explanation</h3>
+            <span class="card-subtitle">Easy-to-understand overview</span>
+          </div>
+          <button class="copy-btn" data-target="explanation-content" title="Copy section">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <div class="card-body" id="explanation-content"></div>
+      </div>
+
+      <!-- Key Points Card -->
+      <div class="result-card card-keypoints" id="card-keypoints" data-category="keypoints">
+        <div class="card-accent"></div>
+        <div class="card-header">
+          <div class="card-icon-wrapper keypoints-icon">🔑</div>
+          <div class="card-title-group">
+            <h3>Key Points</h3>
+            <span class="card-subtitle">5 essential takeaways</span>
+          </div>
+          <button class="copy-btn" data-target="keypoints-content" title="Copy section">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <div class="card-body" id="keypoints-content"></div>
+      </div>
+
+      <!-- Quiz Card -->
+      <div class="result-card card-quiz" id="card-quiz" data-category="quiz">
+        <div class="card-accent"></div>
+        <div class="card-header">
+          <div class="card-icon-wrapper quiz-icon">❓</div>
+          <div class="card-title-group">
+            <h3>Quiz Questions</h3>
+            <span class="card-subtitle">Test your understanding</span>
+          </div>
+          <div class="quiz-score" id="quiz-score" style="display:none;">
+            <span id="score-text">0/5</span>
+          </div>
+          <button class="copy-btn" data-target="quiz-content" title="Copy section">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <div class="card-body" id="quiz-content"></div>
+        <div class="quiz-actions">
+          <button class="quiz-reveal-all" id="reveal-all-btn">👁️ Reveal All Answers</button>
+          <button class="quiz-reset" id="reset-quiz-btn">🔄 Reset Quiz</button>
+        </div>
+      </div>
+
+      <!-- Summary Card -->
+      <div class="result-card card-summary" id="card-summary" data-category="summary">
+        <div class="card-accent"></div>
+        <div class="card-header">
+          <div class="card-icon-wrapper summary-icon">📝</div>
+          <div class="card-title-group">
+            <h3>Short Summary</h3>
+            <span class="card-subtitle">Quick revision paragraph</span>
+          </div>
+          <button class="copy-btn" data-target="summary-content" title="Copy section">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <div class="card-body" id="summary-content"></div>
+      </div>
+
+      <!-- Study Plan Card -->
+      <div class="result-card card-studyplan" id="card-studyplan" data-category="studyplan">
+        <div class="card-accent"></div>
+        <div class="card-header">
+          <div class="card-icon-wrapper studyplan-icon">📅</div>
+          <div class="card-title-group">
+            <h3>3-Step Study Plan</h3>
+            <span class="card-subtitle">Structured learning roadmap</span>
+          </div>
+          <button class="copy-btn" data-target="studyplan-content" title="Copy section">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <div class="card-body" id="studyplan-content"></div>
+      </div>
+
+      <!-- Back to Top -->
+      <div class="back-to-top-section">
+        <button class="back-to-top-btn" id="back-to-top" title="Back to top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><path d="M18 15l-6-6-6 6"/></svg>
+          Back to Top
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert">
+    <div class="toast-icon" id="toast-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">🧠</div>
+          <div>
+            <div class="footer-name">AI Study Buddy</div>
+            <div class="footer-tagline">Smart Learning Assistant</div>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="#hero" class="footer-link">Home</a>
+          <a href="#how-it-works" class="footer-link">How It Works</a>
+          <a href="#input-section" class="footer-link">Generate</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p class="footer-text">Built for Built with AI Bootcamp – Tadepalligudem</p>
+        <p class="footer-copyright">© 2026 AI Study Buddy. Empowering students with smart learning.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Keyboard shortcut hint -->
+  <div class="kbd-hint" id="kbd-hint">
+    Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to search
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
