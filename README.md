@@ -1,4 +1,4 @@
-# buildwithai-bootcamp
+# Buildwithai-bootcamp
 ## Project Description
 
 AI Study Buddy is a smart learning assistant designed to help students understand, revise, and practice any academic topic more effectively. Many students face difficulty while preparing for exams because they need to search multiple websites, watch long videos, read lengthy notes, and still may not get a clear explanation. AI Study Buddy solves this problem by providing topic-based study material in a simple and structured format.
